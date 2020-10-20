@@ -1,3 +1,5 @@
-FROM openjdk:13-alpine
-COPY target/wgbot.rocks-0.0.1-SNAPSHOT-fat.jar /tmp/bot.jar
-CMD java -jar /tmp/bot.jar
+FROM openjdk
+ENV BOT_TOKEN="${BOT_TOKEN}"
+EXPOSE 8080
+ADD target/wgbot.rocks-0.0.1-SNAPSHOT-fat.jar /tmp/bot.jar
+ENTRYPOINT ["java", "-jar", "/tmp/bot.jar" ]
