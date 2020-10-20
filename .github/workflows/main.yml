@@ -27,6 +27,7 @@ jobs:
           heroku_app_name: "effingerbot"
           heroku_email: "alexander.schamne@gmail.com"
           usedocker: true
+          docker_heroku_process_type: 'worker'
         env:
           BOT_USER: effingerbot
           BOT_TOKEN: ${{secrets.BOT_TOKEN}}
