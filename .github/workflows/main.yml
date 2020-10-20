@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Compile Bot
-        run: |
-          mvn -B clean package
 
       - name: Cache local Maven repository
         uses: actions/cache@v2
@@ -20,6 +17,9 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+      - name: Compile Bot
+        run: |
+          mvn -B clean package
 
       - uses: akhileshns/heroku-deploy@v3.6.8
         with:
@@ -27,5 +27,8 @@ jobs:
           heroku_app_name: "effingerbot"
           heroku_email: "alexander.schamne@gmail.com"
           usedocker: true
+        env:
+          BOT_USER: effingerbot
+          BOT_TOKEN: ${{secrets.BOT_TOKEN}}
 
 

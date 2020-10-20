@@ -40,7 +40,7 @@ class Bot : TelegramLongPollingBot() {
             })
 
             when {
-                text.startsWith("/help") -> send("Say something about me, beer or jokes. I'll try to answer...")
+                text.startsWith("/help") -> send("Say something about me, beer or ch.effingerbot.rocks.getJokes. I'll try to answer...")
                 react.any { it in text } -> send(quotes.choose())
                 beer.any { it in text } -> send("Can I have a ${country.choose()} beer, please?")
                 hated != null -> send("I hate ${hated}!")
