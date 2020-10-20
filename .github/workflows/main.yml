@@ -5,10 +5,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  BOT_USER: effingerbot
-  BOT_TOKEN: ${{secrets.BOT_TOKEN}}
-
 jobs:
   build:
     runs-on: ubuntu-latest
