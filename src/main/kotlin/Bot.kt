@@ -19,6 +19,7 @@ class Bot : TelegramLongPollingBot() {
     private val beer = listOf("beer", "bier", "cerveza", "biere", "birra", "öl", "øl", "ale")
     private val country = listOf("mexican", "dutch", "swiss", "german", "czech", "spanish", "japanese", "chinese")
     private val taste = listOf("taste", "geschmack", "durst", "drink", "hungry", "hunger", "eat", "essen")
+    private val members = listOf("sabi")
 
     override fun getBotToken() = System.getenv("BOT_TOKEN") ?: System.getenv("TOKEN")
     override fun getBotUsername() = System.getenv("BOT_USER") ?: System.getenv("USER")
@@ -43,6 +44,8 @@ class Bot : TelegramLongPollingBot() {
                 text.startsWith("/help") -> send("Say something about me, beer or ch.effingerbot.rocks.getJokes. I'll try to answer...")
                 react.any { it in text } -> send(quotes.choose())
                 beer.any { it in text } -> send("Can I have a ${country.choose()} beer, please?")
+                //members.any { it in text } -> send("${text} setz einen Kaffee auf, trink ihn und mach Vegane Burger!")
+                members.any { it in text } -> send("${text} musst du nicht in Beans & Nuts?")
                 hated != null -> send("I hate ${hated}!")
                 loved != null -> send("I love ${loved}!")
                 taste.any { it in text } -> send("Try me! I have an excellent taste!")
