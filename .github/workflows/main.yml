@@ -19,11 +19,11 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Compile Bot
+        run: |
+          mvn -B clean package
         env:
           BOT_USER: effingerbot
           BOT_TOKEN: ${{secrets.BOT_TOKEN}}
-        run: |
-          mvn -B clean package
 
       - uses: akhileshns/heroku-deploy@v3.6.8
         with:
