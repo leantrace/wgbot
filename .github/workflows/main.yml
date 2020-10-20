@@ -17,7 +17,11 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+
       - name: Compile Bot
+        env:
+          BOT_USER: effingerbot
+          BOT_TOKEN: ${{secrets.BOT_TOKEN}}
         run: |
           mvn -B clean package
 
@@ -28,8 +32,5 @@ jobs:
           heroku_email: "alexander.schamne@gmail.com"
           usedocker: true
           docker_heroku_process_type: 'worker'
-        env:
-          BOT_USER: effingerbot
-          BOT_TOKEN: ${{secrets.BOT_TOKEN}}
 
 
