@@ -22,8 +22,8 @@ class Bot : TelegramLongPollingBot() {
     private val members = listOf("sabi")
 
     init {
-        println("Username: "+(System.getenv("BOT_USER")?:System.getProperty("BOT_USER")))
-        println("Token: "+(System.getenv("BOT_TOKEN")?:System.getProperty("BOT_TOKEN")))
+        println(">> Username: "+(System.getenv("BOT_USER")?:System.getProperty("BOT_USER")))
+        println(">> Token: "+(System.getenv("BOT_TOKEN")?:System.getProperty("BOT_TOKEN")))
     }
 
     override fun getBotToken() = System.getenv("BOT_TOKEN")
