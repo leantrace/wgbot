@@ -142,7 +142,7 @@
                         </goals>
                         <configuration>
                             <executable>docker</executable>
-                            <commandlineArgs>build . -t leantrace/wgbot:${project.version}
+                            <commandlineArgs>build . -t leantrace/wgbot:${project.version} --no-cache --build-arg BOT_TOKEN=${env.BOT_TOKEN} --build-arg BOT_USER=${env.BOT_USER}
                             </commandlineArgs>
                         </configuration>
                     </execution>
